@@ -1,0 +1,72 @@
+{
+    "variables": {
+    	"iso_url": "./CentOS-7-x86_64-Minimal-1611.iso",
+    	"iso_sha256": "27bd866242ee058b7a5754e83d8ee8403e216b93d130d800852a96f41c34d86a",
+    	"ssh_user": "vagrant",
+    	"ssh_pass": "vagrant",
+        "esxi_datastore": "datastore2",
+        "esxi_host": "192.168.30.10",
+        "esxi_username": "root",
+        "esxi_password": "vagrant",
+        "esxi_type": "esx5"
+    },
+    "builders": [
+    {
+		"type": "vmware-iso",
+		"vm_name" : "Centos7",
+		"disk_size": "51200",
+        "floppy_files": [
+        "./centos7-ks.cfg"
+        ],
+        "remote_host": "{{user `esxi_host`}}",
+        "remote_username": "{{user `esxi_username`}}",
+        "remote_password": "{{user `esxi_password`}}",
+        "remote_datastore": "{{user `esxi_datastore`}}",
+        "remote_type": "esx5",
+        "guest_os_type": "centos-64",
+        "headless": false,
+        "version": 11,
+		"vmx_data": {
+        "mem.hotadd": "TRUE",
+        "memsize": "2048",
+        "numvcpus": "1",
+        "scsi0.virtualDev": "lsisas1068",
+        "vcpu.hotadd": "TRUE",
+        "ethernet0.present": true,
+        "ethernet0.connected": true,
+        "ethernet1.virtualdev": "vmxnet3",
+        "ethernet0.networkName": "VM Network",
+        "ethernet1.present": true,
+        "ethernet1.connected": true,
+        "ethernet1.virtualdev": "vmxnet3",
+        "ethernet1.networkName": "VM Networks"
+        },
+        "vmx_data_post": {
+        "ethernet0.virtualdev": "vmxnet3"
+        },
+		"iso_checksum_type": "sha256",
+		"iso_url": "{{user `iso_url`}}",
+		"iso_checksum": "{{user `iso_sha256`}}",
+        "ssh_timeout": "600s",
+		"ssh_username": "{{user `ssh_user`}}",
+		"ssh_password": "{{user `ssh_pass`}}",
+		"shutdown_command": "echo '{{user `ssh_pass`}}'|sudo -S /sbin/halt -h -p",
+		"boot_wait": "10s",
+		"boot_command": [
+			"<up><wait><tab> text inst.ks=hd:fd0:/centos7-ks.cfg <enter>"
+		]
+    }
+    ],
+    "provisioners":[
+    {
+        "type": "shell",
+        "execute_command": "echo '{{user `ssh_pass`}}'| {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+        "script": "./scripts/nopasswd.sh"
+    },
+    {
+        "type": "shell",
+        "execute_command": "echo '{{user `ssh_pass`}}'| {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+        "script": "./scripts/cleanup.sh"
+    }
+    ]
+}
