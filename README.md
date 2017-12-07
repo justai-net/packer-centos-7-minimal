@@ -1,5 +1,6 @@
 # packer-centos-7-minimal
 Project to create a Centos 7 minimal SOE with Packer.
+```
 Started by user Adam Inthapanya
 Building remotely on Centos7-slave in workspace /tmp/workspace/packer-centos-7-minimal
  > git rev-parse --is-inside-work-tree # timeout=10
@@ -358,3 +359,4 @@ Commit message: "Removed update python."
 --> vmware-iso: VM files in directory: /vmfs/volumes/datastore2/output-vmware-iso
 Finished: SUCCESS
 Finished: SUCCESS
+```
