@@ -1,6 +1,6 @@
 {
     "variables": {
-    	"iso_url": "./CentOS-7-x86_64-Minimal-1611.iso",
+    	"iso_url": "/tmp/isos/CentOS-7-x86_64-Minimal-1611.iso",
     	"iso_sha256": "27bd866242ee058b7a5754e83d8ee8403e216b93d130d800852a96f41c34d86a",
     	"ssh_user": "vagrant",
     	"ssh_pass": "vagrant",
@@ -16,7 +16,7 @@
 		"vm_name" : "Centos7",
 		"disk_size": "51200",
         "floppy_files": [
-        "./centos7-ks.cfg"
+        "/tmp/workspace/packer-centos-7-minimal/centos7-ks.cfg"
         ],
         "remote_host": "{{user `esxi_host`}}",
         "remote_username": "{{user `esxi_username`}}",
