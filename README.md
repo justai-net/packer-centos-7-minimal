@@ -1,5 +1,5 @@
 # packer-centos-7-minimal
-Project to create a Centos 7 minimal SOE with Packer.
+Project to create a Centos 7 minimal SOE with Packer, Jenkins for CI/CD tool.
 ```
 Started by user Adam Inthapanya
 Building remotely on Centos7-slave in workspace /tmp/workspace/packer-centos-7-minimal
