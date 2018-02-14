@@ -13,8 +13,8 @@
     "builders": [
     {
         "type": "vmware-iso",
-		"vm_name" : "Centos7",
-		"disk_size": "51200",
+        "vm_name" : "Centos7",
+        "disk_size": "51200",
         "floppy_files": [
         "/tmp/workspace/packer-centos-7-minimal/centos7-ks.cfg"
         ],
@@ -26,7 +26,7 @@
         "guest_os_type": "centos-64",
         "headless": false,
         "version": 11,
-		"vmx_data": {
+        "vmx_data": {
         "mem.hotadd": "TRUE",
         "memsize": "2048",
         "numvcpus": "1",
@@ -44,17 +44,17 @@
         "vmx_data_post": {
         "ethernet0.virtualdev": "vmxnet3"
         },
-		"iso_checksum_type": "sha256",
-		"iso_url": "{{user `iso_url`}}",
-		"iso_checksum": "{{user `iso_sha256`}}",
+        "iso_checksum_type": "sha256",
+        "iso_url": "{{user `iso_url`}}",
+        "iso_checksum": "{{user `iso_sha256`}}",
         "ssh_timeout": "600s",
-		"ssh_username": "{{user `ssh_user`}}",
-		"ssh_password": "{{user `ssh_pass`}}",
-		"shutdown_command": "echo '{{user `ssh_pass`}}'|sudo -S /sbin/halt -h -p",
-		"boot_wait": "10s",
-		"boot_command": [
-			"<up><wait><tab> text inst.ks=hd:fd0:/centos7-ks.cfg <enter>"
-		]
+        "ssh_username": "{{user `ssh_user`}}",
+        "ssh_password": "{{user `ssh_pass`}}",
+        "shutdown_command": "echo '{{user `ssh_pass`}}'|sudo -S /sbin/halt -h -p",
+        "boot_wait": "10s",
+        "boot_command": [
+        	"<up><wait><tab> text inst.ks=hd:fd0:/centos7-ks.cfg <enter>"
+        ]
     }
     ],
     "provisioners":[
