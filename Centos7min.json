@@ -12,7 +12,7 @@
     },
     "builders": [
     {
-		"type": "vmware-iso",
+        "type": "vmware-iso",
 		"vm_name" : "Centos7",
 		"disk_size": "51200",
         "floppy_files": [
