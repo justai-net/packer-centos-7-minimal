@@ -6,9 +6,9 @@
   - motd
 
   tasks:
-#    - name: Yum update
-#      yum: name=* state=latest
-#      register: updates
+    - name: Yum update
+      yum: name=* state=latest
+      register: updates
 
     - name: Debug registered updates
       debug:
