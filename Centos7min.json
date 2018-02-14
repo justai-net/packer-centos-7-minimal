@@ -61,20 +61,20 @@
     {
         "type": "shell",
         "execute_command": "echo '{{user `ssh_pass`}}'| {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
-        "script": "./scripts/nopasswd.sh"
+        "script": "scripts/nopasswd.sh"
     },
     {
         "type": "shell",
-        "script": "./scripts/ansible.sh"
+        "script": "scripts/ansible.sh"
     },
     {
         "type": "ansible-local",
-        "playbook_file": "./playbooks/provision.yml"
+        "playbook_file": "playbooks/provision.yml"
     },
     {
         "type": "shell",
         "execute_command": "echo '{{user `ssh_pass`}}'| {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
-        "script": "./scripts/cleanup.sh"
+        "script": "scripts/cleanup.sh"
     }
     ]
 }
