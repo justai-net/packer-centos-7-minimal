@@ -1,8 +1,0 @@
----
-- hosts: all
-  become: true
-  connection: local
-  roles:
-    - motd
-    - yumupdate
-    - vmware-tools
