@@ -1,13 +1,15 @@
 ---
 - hosts: all
   become: true
+  roles:
+  - motd
   tasks:
-    - name: Yum update
-      yum: name=* state=latest
-      register: updates
+#    - name: Yum update
+#      yum: name=* state=latest
+#      register: updates
 
     - name: Debug registered updates
-      debug: 
+      debug:
        var: updates
 
     - name: Installing Open VMware Tools (open-vm-tools) for CentOS/RHEL 7 and higher.
