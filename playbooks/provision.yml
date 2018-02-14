@@ -3,6 +3,7 @@
   become: true
   roles:
   - motd
+
   tasks:
 #    - name: Yum update
 #      yum: name=* state=latest
