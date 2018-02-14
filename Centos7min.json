@@ -69,8 +69,8 @@
     },
     {
         "type": "ansible-local",
-        "playbook_file": "playbooks/provision.yml",
-        "role_paths": "playbooks/roles"
+        "playbook_file": "site.yml",
+        "role_paths": "roles/"
     },
     {
         "type": "shell",
