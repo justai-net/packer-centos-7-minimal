@@ -71,7 +71,9 @@
         "type": "ansible-local",
         "playbook_file": "ansible/site.yml",
         "role_paths": [
-            "ansible/roles/*"
+            "ansible/roles/motd",
+            "ansible/roles/vmware-tools",
+            "ansible/roles/yumupdate"
         ]
     },
     {
