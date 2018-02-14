@@ -3,6 +3,6 @@
   become: true
   connection: local
   roles:
-    - motd
-    - yumupdate
-    - vmware-tools
+     - motd
+     - yumupdate
+     - vmware-tools
