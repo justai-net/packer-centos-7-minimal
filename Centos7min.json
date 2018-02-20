@@ -88,6 +88,7 @@
         "host": "{{user `esxi_host`}}",
         "username": "{{user `esxi_username`}}",
         "password": "{{user `esxi_password`}}",
+        "insecure": "true",
         "folder": "/vmfs/volumes/datastore2/templates/os/centos-7/"
         }
     ]
