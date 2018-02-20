@@ -38,11 +38,11 @@
         "ethernet0.present": true,
         "ethernet0.connected": true,
         "ethernet1.virtualdev": "vmxnet3",
-        "ethernet0.networkName": "VM Network",
+        "ethernet0.networkName": "BridgedNetwork",
         "ethernet1.present": true,
         "ethernet1.connected": true,
         "ethernet1.virtualdev": "vmxnet3",
-        "ethernet1.networkName": "BridgedNetwork"
+        "ethernet1.networkName": "VM Network"
         },
         "vmx_data_post": {
         "ethernet0.virtualdev": "vmxnet3"
