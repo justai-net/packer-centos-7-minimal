@@ -8,6 +8,9 @@
         "esxi_host": "192.168.30.10",
         "esxi_username": "root",
         "esxi_password": "vagrant",
+        "vcenter_host": "192.168.30.5",
+        "vcenter_username": "administrator@vsphere.local",
+        "vcenter_password": "vagrant",
         "esxi_type": "esx5"
     },
     "builders": [
@@ -85,11 +88,11 @@
     "post-processors":[
         {
         "type": "vsphere-template",
-        "host": "{{user `esxi_host`}}",
-        "username": "{{user `esxi_username`}}",
-        "password": "{{user `esxi_password`}}",
+        "host": "{{user `vcenter_host`}}",
+        "username": "{{user `vcenter_username`}}",
+        "password": "{{user `vcenter_password`}}",
         "insecure": "true",
-        "folder": "/vmfs/volumes/datastore2/templates/os/centos-7/"
+        "folder": "/templates/os/centos-7"
         }
     ]
 }
