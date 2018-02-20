@@ -23,7 +23,7 @@
         "remote_password": "{{user `esxi_password`}}",
         "remote_datastore": "{{user `esxi_datastore`}}",
         "remote_type": "esx5",
-        "format": "ovf",
+        "format": "ova",
         "guest_os_type": "centos-64",
         "headless": false,
         "version": 11,
