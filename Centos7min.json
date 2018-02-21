@@ -60,31 +60,6 @@
         ]
     }
     ],
-    "provisioners":[
-    {
-        "type": "shell",
-        "execute_command": "echo '{{user `ssh_pass`}}'| {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
-        "script": "scripts/nopasswd.sh"
-    },
-    {
-        "type": "shell",
-        "script": "scripts/ansible.sh"
-    },
-    {
-        "type": "ansible-local",
-        "playbook_file": "ansible/site.yml",
-        "role_paths": [
-            "ansible/roles/motd",
-            "ansible/roles/vmware-tools",
-            "ansible/roles/yumupdate"
-        ]
-    },
-    {
-        "type": "shell",
-        "execute_command": "echo '{{user `ssh_pass`}}'| {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
-        "script": "scripts/cleanup.sh"
-    }
-    ],
     "post-processors":[
         {
         "type": "vsphere-template",
