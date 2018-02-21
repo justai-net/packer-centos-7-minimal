@@ -37,7 +37,7 @@
         "vcpu.hotadd": "TRUE",
         "ethernet0.present": true,
         "ethernet0.connected": true,
-        "ethernet1.virtualdev": "vmxnet3",
+        "ethernet0.virtualdev": "vmxnet3",
         "ethernet0.networkName": "BridgedNetwork",
         "ethernet1.present": true,
         "ethernet1.connected": true,
