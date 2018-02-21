@@ -59,15 +59,5 @@
         	"<up><wait><tab> text inst.ks=hd:fd0:/centos7-ks.cfg <enter>"
         ]
     }
-    ],
-    "post-processors":[
-        {
-        "type": "vsphere-template",
-        "host": "{{user `vcenter_host`}}",
-        "username": "{{user `vcenter_username`}}",
-        "password": "{{user `vcenter_password`}}",
-        "insecure": "true",
-        "folder": "/templates/os/centos-7"
-        }
     ]
 }
