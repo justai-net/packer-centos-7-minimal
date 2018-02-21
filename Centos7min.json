@@ -84,5 +84,17 @@
         "execute_command": "echo '{{user `ssh_pass`}}'| {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
         "script": "scripts/cleanup.sh"
     }
+    ],
+    "post-processors":[
+        {
+        "type": "vsphere-template",
+        "host": "{{user `vcenter_host`}}",
+        "username": "{{user `vcenter_username`}}",
+        "datastore": "datastore2",
+        "password": "{{user `vcenter_password`}}",
+        "insecure": "true",
+        "vm_name": "Centos7-SOE",
+        "folder": "/templates/os/centos-7"
+        }
     ]
 }
