@@ -17,6 +17,7 @@
     {
         "type": "vmware-iso",
         "vm_name" : "Centos7",
+        "disk_type_id": "thin",
         "disk_size": "51200",
         "floppy_files": [
         "/tmp/workspace/packer-centos-7-minimal/centos7-ks.cfg"
@@ -33,7 +34,6 @@
         "mem.hotadd": "TRUE",
         "memsize": "2048",
         "numvcpus": "1",
-        "disk_type_id": 0,
         "scsi0.virtualDev": "lsisas1068",
         "vcpu.hotadd": "TRUE",
         "ethernet0.present": true,
