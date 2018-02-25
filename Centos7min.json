@@ -33,7 +33,7 @@
         "mem.hotadd": "TRUE",
         "memsize": "2048",
         "numvcpus": "1",
-        "disk_type_id": "thin",
+        "disk_type_id": "0",
         "scsi0.virtualDev": "lsisas1068",
         "vcpu.hotadd": "TRUE",
         "ethernet0.present": true,
