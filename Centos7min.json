@@ -18,7 +18,6 @@
         "type": "vmware-iso",
         "vm_name" : "Centos7",
         "disk_type_id": "thin",
-        "disk_size": "51200",
         "floppy_files": [
         "/tmp/workspace/packer-centos-7-minimal/centos7-ks.cfg"
         ],
