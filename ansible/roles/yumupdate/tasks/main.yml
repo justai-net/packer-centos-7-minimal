@@ -1,4 +1,7 @@
 ---
+- name: install perl
+  yum: name=perl state=latest
+  
 - name: Yum update
   yum: name=* state=latest
   register: updates
