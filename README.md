@@ -2,22 +2,21 @@
 Project to create a Centos 7 minimal SOE with Packer, Jenkins for CI/CD tool.
 ```
 Started by user Adam Inthapanya
-Building remotely on Centos7-slave in workspace /tmp/workspace/packer-centos-7-minimal
+Building remotely on centos-7-build in workspace /tmp/workspace/packer-centos-7-minimal
  > git rev-parse --is-inside-work-tree # timeout=10
 Fetching changes from the remote Git repository
- > git config remote.origin.url https://github.com/skitzr/packer-centos-7-minimal.git # timeout=10
-Fetching upstream changes from https://github.com/skitzr/packer-centos-7-minimal.git
+ > git config remote.Packer_build_files.url https://github.com/justai-net/packer-centos-7-minimal.git # timeout=10
+Fetching upstream changes from https://github.com/justai-net/packer-centos-7-minimal.git
  > git --version # timeout=10
-using GIT_ASKPASS to set credentials GIT Account
- > git fetch --tags --progress https://github.com/skitzr/packer-centos-7-minimal.git +refs/heads/*:refs/remotes/origin/*
- > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
- > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
-Checking out Revision e1a57f6199b3336d39132fe2cef1555115eac110 (refs/remotes/origin/master)
+ > git fetch --tags --progress https://github.com/justai-net/packer-centos-7-minimal.git +refs/heads/*:refs/remotes/Packer_build_files/*
+ > git rev-parse refs/remotes/Packer_build_files/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/Packer_build_files/Packer_build_files/master^{commit} # timeout=10
+Checking out Revision f20afdb078caccdf41bc0c953257fbe92da5f9ef (refs/remotes/Packer_build_files/master)
  > git config core.sparsecheckout # timeout=10
- > git checkout -f e1a57f6199b3336d39132fe2cef1555115eac110
-Commit message: "Removed update python."
- > git rev-list 41755b4d26d54dc4fc9c36706c8de4a85d4b6a2a # timeout=10
-[packer-centos-7-minimal] $ /tmp/tools/biz.neustar.jenkins.plugins.packer.PackerInstallation/Centos-7-build/packer build /tmp/workspace/packer-centos-7-minimal/Centos7min.json
+ > git checkout -f f20afdb078caccdf41bc0c953257fbe92da5f9ef
+Commit message: "install perl,"
+ > git rev-list --no-walk de219166134e37f439fe8442d7e38ac6e8d015d0 # timeout=10
+[packer-centos-7-minimal] $ /tmp/tools/biz.neustar.jenkins.plugins.packer.PackerInstallation/Centos-7-SOE/packer build /tmp/workspace/packer-centos-7-minimal/Centos7min.json
 [1;32mvmware-iso output will be in this color.[0m
 
 [1;32m==> vmware-iso: Downloading or copying ISO[0m
@@ -40,15 +39,15 @@ Commit message: "Removed update python."
 [1;32m==> vmware-iso: Typing the boot command over VNC...[0m
 [1;32m==> vmware-iso: Waiting for SSH to become available...[0m
 [1;32m==> vmware-iso: Connected to SSH![0m
-[1;32m==> vmware-iso: Provisioning with shell script: ./scripts/nopasswd.sh[0m
+[1;32m==> vmware-iso: Provisioning with shell script: scripts/nopasswd.sh[0m
 [0;32m    vmware-iso: ***** Adding Vagrant as a NOPASSWD SUDOER *****[0m
-[1;32m==> vmware-iso: Provisioning with shell script: ./scripts/ansible.sh[0m
+[1;32m==> vmware-iso: Provisioning with shell script: scripts/ansible.sh[0m
 [0;32m    vmware-iso: ***** Installing Ansible *****[0m
 [0;32m    vmware-iso: Loaded plugins: fastestmirror[0m
 [0;32m    vmware-iso: Determining fastest mirrors[0m
-[0;32m    vmware-iso:  * base: mirror.intergrid.com.au[0m
-[0;32m    vmware-iso:  * extras: mirror.nsw.coloau.com.au[0m
-[0;32m    vmware-iso:  * updates: mirror.intergrid.com.au[0m
+[0;32m    vmware-iso:  * base: centos.mirror.ausnetservers.net.au[0m
+[0;32m    vmware-iso:  * extras: centos.mirror.ausnetservers.net.au[0m
+[0;32m    vmware-iso:  * updates: centos.mirror.ausnetservers.net.au[0m
 [0;32m    vmware-iso: Resolving Dependencies[0m
 [0;32m    vmware-iso: --> Running transaction check[0m
 [0;32m    vmware-iso: ---> Package epel-release.noarch 0:7-9 will be installed[0m
@@ -90,23 +89,23 @@ Commit message: "Removed update python."
 [0;32m    vmware-iso: Complete![0m
 [0;32m    vmware-iso: Loaded plugins: fastestmirror[0m
 [0;32m    vmware-iso: Loading mirror speeds from cached hostfile[0m
-[0;32m    vmware-iso:  * base: mirror.intergrid.com.au[0m
-[0;32m    vmware-iso:  * epel: mirror.nsw.coloau.com.au[0m
-[0;32m    vmware-iso:  * extras: mirror.nsw.coloau.com.au[0m
-[0;32m    vmware-iso:  * updates: mirror.intergrid.com.au[0m
+[0;32m    vmware-iso:  * base: centos.mirror.ausnetservers.net.au[0m
+[0;32m    vmware-iso:  * epel: ucmirror.canterbury.ac.nz[0m
+[0;32m    vmware-iso:  * extras: centos.mirror.ausnetservers.net.au[0m
+[0;32m    vmware-iso:  * updates: centos.mirror.ausnetservers.net.au[0m
 [0;32m    vmware-iso: Resolving Dependencies[0m
 [0;32m    vmware-iso: --> Running transaction check[0m
-[0;32m    vmware-iso: ---> Package ansible.noarch 0:2.4.1.0-1.el7 will be installed[0m
-[0;32m    vmware-iso: --> Processing Dependency: sshpass for package: ansible-2.4.1.0-1.el7.noarch[0m
-[0;32m    vmware-iso: --> Processing Dependency: python2-jmespath for package: ansible-2.4.1.0-1.el7.noarch[0m
-[0;32m    vmware-iso: --> Processing Dependency: python-six for package: ansible-2.4.1.0-1.el7.noarch[0m
-[0;32m    vmware-iso: --> Processing Dependency: python-setuptools for package: ansible-2.4.1.0-1.el7.noarch[0m
-[0;32m    vmware-iso: --> Processing Dependency: python-passlib for package: ansible-2.4.1.0-1.el7.noarch[0m
-[0;32m    vmware-iso: --> Processing Dependency: python-paramiko for package: ansible-2.4.1.0-1.el7.noarch[0m
-[0;32m    vmware-iso: --> Processing Dependency: python-jinja2 for package: ansible-2.4.1.0-1.el7.noarch[0m
-[0;32m    vmware-iso: --> Processing Dependency: python-httplib2 for package: ansible-2.4.1.0-1.el7.noarch[0m
-[0;32m    vmware-iso: --> Processing Dependency: python-cryptography for package: ansible-2.4.1.0-1.el7.noarch[0m
-[0;32m    vmware-iso: --> Processing Dependency: PyYAML for package: ansible-2.4.1.0-1.el7.noarch[0m
+[0;32m    vmware-iso: ---> Package ansible.noarch 0:2.4.2.0-2.el7 will be installed[0m
+[0;32m    vmware-iso: --> Processing Dependency: sshpass for package: ansible-2.4.2.0-2.el7.noarch[0m
+[0;32m    vmware-iso: --> Processing Dependency: python2-jmespath for package: ansible-2.4.2.0-2.el7.noarch[0m
+[0;32m    vmware-iso: --> Processing Dependency: python-six for package: ansible-2.4.2.0-2.el7.noarch[0m
+[0;32m    vmware-iso: --> Processing Dependency: python-setuptools for package: ansible-2.4.2.0-2.el7.noarch[0m
+[0;32m    vmware-iso: --> Processing Dependency: python-passlib for package: ansible-2.4.2.0-2.el7.noarch[0m
+[0;32m    vmware-iso: --> Processing Dependency: python-paramiko for package: ansible-2.4.2.0-2.el7.noarch[0m
+[0;32m    vmware-iso: --> Processing Dependency: python-jinja2 for package: ansible-2.4.2.0-2.el7.noarch[0m
+[0;32m    vmware-iso: --> Processing Dependency: python-httplib2 for package: ansible-2.4.2.0-2.el7.noarch[0m
+[0;32m    vmware-iso: --> Processing Dependency: python-cryptography for package: ansible-2.4.2.0-2.el7.noarch[0m
+[0;32m    vmware-iso: --> Processing Dependency: PyYAML for package: ansible-2.4.2.0-2.el7.noarch[0m
 [0;32m    vmware-iso: --> Running transaction check[0m
 [0;32m    vmware-iso: ---> Package PyYAML.x86_64 0:3.10-11.el7 will be installed[0m
 [0;32m    vmware-iso: --> Processing Dependency: libyaml-0.so.2()(64bit) for package: PyYAML-3.10-11.el7.x86_64[0m
@@ -160,7 +159,7 @@ Commit message: "Removed update python."
 [0;32m    vmware-iso:                                                                            Size[0m
 [0;32m    vmware-iso: ================================================================================[0m
 [0;32m    vmware-iso: Installing:[0m
-[0;32m    vmware-iso:  ansible                              noarch  2.4.1.0-1.el7      extras   7.6 M[0m
+[0;32m    vmware-iso:  ansible                              noarch  2.4.2.0-2.el7      extras   7.6 M[0m
 [0;32m    vmware-iso: Installing for dependencies:[0m
 [0;32m    vmware-iso:  PyYAML                               x86_64  3.10-11.el7        base     153 k[0m
 [0;32m    vmware-iso:  libyaml                              x86_64  0.1.4-11.el7_0     base      55 k[0m
@@ -197,7 +196,7 @@ Commit message: "Removed update python."
 [0;32m    vmware-iso: Downloading packages:[0m
 [0;32m    vmware-iso: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.[0m
 [0;32m    vmware-iso: --------------------------------------------------------------------------------[0m
-[0;32m    vmware-iso: Total                                              591 kB/s |  14 MB  00:24[0m
+[0;32m    vmware-iso: Total                                              1.1 MB/s |  14 MB  00:13[0m
 [0;32m    vmware-iso: Running transaction check[0m
 [0;32m    vmware-iso: Running transaction test[0m
 [0;32m    vmware-iso: Transaction test succeeded[0m
@@ -226,7 +225,7 @@ Commit message: "Removed update python."
 [0;32m    vmware-iso:   Installing : python-paramiko-2.1.1-2.el7.noarch                         22/27[0m
 [0;32m    vmware-iso:   Installing : python2-jmespath-0.9.0-3.el7.noarch                        23/27[0m
 [0;32m    vmware-iso:   Installing : sshpass-1.06-2.el7.x86_64                                  24/27[0m
-[0;32m    vmware-iso:   Installing : ansible-2.4.1.0-1.el7.noarch                               25/27[0m
+[0;32m    vmware-iso:   Installing : ansible-2.4.2.0-2.el7.noarch                               25/27[0m
 [0;32m    vmware-iso:   Cleanup    : 1:openssl-1.0.1e-60.el7.x86_64                             26/27[0m
 [0;32m    vmware-iso:   Cleanup    : 1:openssl-libs-1.0.1e-60.el7.x86_64                        27/27[0m
 [0;32m    vmware-iso:   Verifying  : python-jinja2-2.7.2-2.el7.noarch                            1/27[0m
@@ -237,18 +236,18 @@ Commit message: "Removed update python."
 [0;32m    vmware-iso:   Verifying  : 1:openssl-1.0.2k-8.el7.x86_64                               6/27[0m
 [0;32m    vmware-iso:   Verifying  : python2-jmespath-0.9.0-3.el7.noarch                         7/27[0m
 [0;32m    vmware-iso:   Verifying  : 1:openssl-libs-1.0.2k-8.el7.x86_64                          8/27[0m
-[0;32m    vmware-iso:   Verifying  : ansible-2.4.1.0-1.el7.noarch                                9/27[0m
-[0;32m    vmware-iso:   Verifying  : python-six-1.9.0-2.el7.noarch                              10/27[0m
-[0;32m    vmware-iso:   Verifying  : python-idna-2.4-1.el7.noarch                               11/27[0m
-[0;32m    vmware-iso:   Verifying  : python-markupsafe-0.11-10.el7.x86_64                       12/27[0m
-[0;32m    vmware-iso:   Verifying  : python-ply-3.4-11.el7.noarch                               13/27[0m
-[0;32m    vmware-iso:   Verifying  : python-passlib-1.6.5-2.el7.noarch                          14/27[0m
-[0;32m    vmware-iso:   Verifying  : python-babel-0.9.6-8.el7.noarch                            15/27[0m
-[0;32m    vmware-iso:   Verifying  : python-backports-1.0-8.el7.x86_64                          16/27[0m
-[0;32m    vmware-iso:   Verifying  : python-cffi-1.6.0-5.el7.x86_64                             17/27[0m
-[0;32m    vmware-iso:   Verifying  : python-paramiko-2.1.1-2.el7.noarch                         18/27[0m
-[0;32m    vmware-iso:   Verifying  : python-pycparser-2.14-1.el7.noarch                         19/27[0m
-[0;32m    vmware-iso:   Verifying  : libyaml-0.1.4-11.el7_0.x86_64                              20/27[0m
+[0;32m    vmware-iso:   Verifying  : python-six-1.9.0-2.el7.noarch                               9/27[0m
+[0;32m    vmware-iso:   Verifying  : python-idna-2.4-1.el7.noarch                               10/27[0m
+[0;32m    vmware-iso:   Verifying  : python-markupsafe-0.11-10.el7.x86_64                       11/27[0m
+[0;32m    vmware-iso:   Verifying  : python-ply-3.4-11.el7.noarch                               12/27[0m
+[0;32m    vmware-iso:   Verifying  : python-passlib-1.6.5-2.el7.noarch                          13/27[0m
+[0;32m    vmware-iso:   Verifying  : python-babel-0.9.6-8.el7.noarch                            14/27[0m
+[0;32m    vmware-iso:   Verifying  : python-backports-1.0-8.el7.x86_64                          15/27[0m
+[0;32m    vmware-iso:   Verifying  : python-cffi-1.6.0-5.el7.x86_64                             16/27[0m
+[0;32m    vmware-iso:   Verifying  : python-paramiko-2.1.1-2.el7.noarch                         17/27[0m
+[0;32m    vmware-iso:   Verifying  : python-pycparser-2.14-1.el7.noarch                         18/27[0m
+[0;32m    vmware-iso:   Verifying  : libyaml-0.1.4-11.el7_0.x86_64                              19/27[0m
+[0;32m    vmware-iso:   Verifying  : ansible-2.4.2.0-2.el7.noarch                               20/27[0m
 [0;32m    vmware-iso:   Verifying  : python-ipaddress-1.0.16-2.el7.noarch                       21/27[0m
 [0;32m    vmware-iso:   Verifying  : python-enum34-1.0.4-1.el7.noarch                           22/27[0m
 [0;32m    vmware-iso:   Verifying  : python-httplib2-0.9.2-1.el7.noarch                         23/27[0m
@@ -258,7 +257,7 @@ Commit message: "Removed update python."
 [0;32m    vmware-iso:   Verifying  : 1:openssl-1.0.1e-60.el7.x86_64                             27/27[0m
 [0;32m    vmware-iso:[0m
 [0;32m    vmware-iso: Installed:[0m
-[0;32m    vmware-iso:   ansible.noarch 0:2.4.1.0-1.el7[0m
+[0;32m    vmware-iso:   ansible.noarch 0:2.4.2.0-2.el7[0m
 [0;32m    vmware-iso:[0m
 [0;32m    vmware-iso: Dependency Installed:[0m
 [0;32m    vmware-iso:   PyYAML.x86_64 0:3.10-11.el7[0m
@@ -290,31 +289,47 @@ Commit message: "Removed update python."
 [0;32m    vmware-iso: Complete![0m
 [1;32m==> vmware-iso: Provisioning with Ansible...[0m
 [0;32m    vmware-iso: Creating Ansible staging directory...[0m
-[0;32m    vmware-iso: Creating directory: /tmp/packer-provisioner-ansible-local/5a28b190-c8a0-1230-ab12-e6ffc7770032[0m
+[0;32m    vmware-iso: Creating directory: /tmp/packer-provisioner-ansible-local/5a93a005-330c-f78d-851d-e00f0c0cec86[0m
 [0;32m    vmware-iso: Uploading main Playbook file...[0m
 [0;32m    vmware-iso: Uploading inventory file...[0m
-[0;32m    vmware-iso: Executing Ansible: cd /tmp/packer-provisioner-ansible-local/5a28b190-c8a0-1230-ab12-e6ffc7770032 && ANSIBLE_FORCE_COLOR=1 PYTHONUNBUFFERED=1 ansible-playbook /tmp/packer-provisioner-ansible-local/5a28b190-c8a0-1230-ab12-e6ffc7770032/provision.yml --extra-vars "packer_build_name=vmware-iso packer_builder_type=vmware-iso packer_http_addr="  -c local -i /tmp/packer-provisioner-ansible-local/5a28b190-c8a0-1230-ab12-e6ffc7770032/packer-provisioner-ansible-local640216465[0m
+[0;32m    vmware-iso: Uploading role directories...[0m
+[0;32m    vmware-iso: Creating directory: /tmp/packer-provisioner-ansible-local/5a93a005-330c-f78d-851d-e00f0c0cec86/roles/motd[0m
+[0;32m    vmware-iso: Creating directory: /tmp/packer-provisioner-ansible-local/5a93a005-330c-f78d-851d-e00f0c0cec86/roles/vmware-tools[0m
+[0;32m    vmware-iso: Creating directory: /tmp/packer-provisioner-ansible-local/5a93a005-330c-f78d-851d-e00f0c0cec86/roles/yumupdate[0m
+[0;32m    vmware-iso: Executing Ansible: cd /tmp/packer-provisioner-ansible-local/5a93a005-330c-f78d-851d-e00f0c0cec86 && ANSIBLE_FORCE_COLOR=1 PYTHONUNBUFFERED=1 ansible-playbook /tmp/packer-provisioner-ansible-local/5a93a005-330c-f78d-851d-e00f0c0cec86/site.yml --extra-vars "packer_build_name=vmware-iso packer_builder_type=vmware-iso packer_http_addr="  -c local -i /tmp/packer-provisioner-ansible-local/5a93a005-330c-f78d-851d-e00f0c0cec86/packer-provisioner-ansible-local790133187[0m
 [0;32m    vmware-iso:[0m
 [0;32m    vmware-iso: PLAY [all] *********************************************************************[0m
 [0;32m    vmware-iso:[0m
 [0;32m    vmware-iso: TASK [Gathering Facts] *********************************************************[0m
 [0;32m    vmware-iso: [0;32mok: [127.0.0.1][0m[0m
 [0;32m    vmware-iso:[0m
-[0;32m    vmware-iso: TASK [Installing Open VMware Tools (open-vm-tools) for CentOS/RHEL 7 and higher.] ***[0m
+[0;32m    vmware-iso: TASK [motd : Adding motd] ******************************************************[0m
 [0;32m    vmware-iso: [0;33mchanged: [127.0.0.1][0m[0m
 [0;32m    vmware-iso:[0m
-[0;32m    vmware-iso: TASK [Start vmtoolsd and enable vmtoolsd to start during boot for CentOS/RHEL 7 and higher.] ***[0m
+[0;32m    vmware-iso: TASK [motd : emojify] **********************************************************[0m
+[0;32m    vmware-iso: [0;33mchanged: [127.0.0.1][0m[0m
+[0;32m    vmware-iso:[0m
+[0;32m    vmware-iso: TASK [yumupdate : install perl] ************************************************[0m
+[0;32m    vmware-iso: [0;33mchanged: [127.0.0.1][0m[0m
+[0;32m    vmware-iso:[0m
+[0;32m    vmware-iso: TASK [yumupdate : Yum update] **************************************************[0m
+[0;32m    vmware-iso: [0;33mchanged: [127.0.0.1][0m[0m
+[0;32m    vmware-iso:[0m
+[0;32m    vmware-iso: TASK [vmware-tools : Installing Open VMware Tools (open-vm-tools) for CentOS/RHEL 7 and higher.] ***[0m
+[0;32m    vmware-iso: [0;33mchanged: [127.0.0.1][0m[0m
+[0;32m    vmware-iso:[0m
+[0;32m    vmware-iso: TASK [vmware-tools : Start vmtoolsd and enable vmtoolsd to start during boot for CentOS/RHEL 7 and higher.] ***[0m
 [0;32m    vmware-iso: [0;33mchanged: [127.0.0.1][0m[0m
 [0;32m    vmware-iso:[0m
 [0;32m    vmware-iso: PLAY RECAP *********************************************************************[0m
-[0;32m    vmware-iso: [0;33m127.0.0.1[0m                  : [0;32mok=3   [0m [0;33mchanged=2   [0m unreachable=0    failed=0[0m
+[0;32m    vmware-iso: [0;33m127.0.0.1[0m                  : [0;32mok=7   [0m [0;33mchanged=6   [0m unreachable=0    failed=0[0m
 [0;32m    vmware-iso:[0m
-[1;32m==> vmware-iso: Provisioning with shell script: ./scripts/cleanup.sh[0m
+[1;32m==> vmware-iso: Provisioning with shell script: scripts/cleanup.sh[0m
 [0;32m    vmware-iso: ***** Removing Vagrant as a NOPASSWD SUDOER *****[0m
 [0;32m    vmware-iso: Loaded plugins: fastestmirror[0m
 [0;32m    vmware-iso: Resolving Dependencies[0m
 [0;32m    vmware-iso: --> Running transaction check[0m
-[0;32m    vmware-iso: ---> Package ansible.noarch 0:2.4.1.0-1.el7 will be erased[0m
+[0;32m    vmware-iso: ---> Package ansible.noarch 0:2.4.2.0-2.el7 will be erased[0m
 [0;32m    vmware-iso: --> Finished Dependency Resolution[0m
 [0;32m    vmware-iso:[0m
 [0;32m    vmware-iso: Dependencies Resolved[0m
@@ -323,7 +338,7 @@ Commit message: "Removed update python."
 [0;32m    vmware-iso:  Package          Arch            Version                Repository        Size[0m
 [0;32m    vmware-iso: ================================================================================[0m
 [0;32m    vmware-iso: Removing:[0m
-[0;32m    vmware-iso:  ansible          noarch          2.4.1.0-1.el7          @extras           38 M[0m
+[0;32m    vmware-iso:  ansible          noarch          2.4.2.0-2.el7          @extras           38 M[0m
 [0;32m    vmware-iso:[0m
 [0;32m    vmware-iso: Transaction Summary[0m
 [0;32m    vmware-iso: ================================================================================[0m
@@ -335,11 +350,11 @@ Commit message: "Removed update python."
 [0;32m    vmware-iso: Running transaction test[0m
 [0;32m    vmware-iso: Transaction test succeeded[0m
 [0;32m    vmware-iso: Running transaction[0m
-[0;32m    vmware-iso:   Erasing    : ansible-2.4.1.0-1.el7.noarch                                 1/1[0m
-[0;32m    vmware-iso:   Verifying  : ansible-2.4.1.0-1.el7.noarch                                 1/1[0m
+[0;32m    vmware-iso:   Erasing    : ansible-2.4.2.0-2.el7.noarch                                 1/1[0m
+[0;32m    vmware-iso:   Verifying  : ansible-2.4.2.0-2.el7.noarch                                 1/1[0m
 [0;32m    vmware-iso:[0m
 [0;32m    vmware-iso: Removed:[0m
-[0;32m    vmware-iso:   ansible.noarch 0:2.4.1.0-1.el7[0m
+[0;32m    vmware-iso:   ansible.noarch 0:2.4.2.0-2.el7[0m
 [0;32m    vmware-iso:[0m
 [0;32m    vmware-iso: Complete![0m
 [1;32m==> vmware-iso: Gracefully halting virtual machine...[0m
@@ -353,10 +368,16 @@ Commit message: "Removed update python."
 [0;32m    vmware-iso: Disabling VNC server...[0m
 [1;32m==> vmware-iso: Skipping export of virtual machine (export is allowed only for ESXi and the format needs to be specified)...[0m
 [1;32m==> vmware-iso: Unregistering virtual machine...[0m
+[1;32m==> vmware-iso: Running post-processor: vsphere-template[0m
+[0;32m    vmware-iso (vsphere-template): Waiting 10s for VMware vSphere to start[0m
+[0;32m    vmware-iso (vsphere-template): Choosing datacenter...[0m
+[0;32m    vmware-iso (vsphere-template): Creating or checking destination folders...[0m
+[0;32m    vmware-iso (vsphere-template): Marking as a template...[0m
 [1;32mBuild 'vmware-iso' finished.[0m
 
 ==> Builds finished. The artifacts of successful builds are:
 --> vmware-iso: VM files in directory: /vmfs/volumes/datastore2/output-vmware-iso
+--> vmware-iso:
 Finished: SUCCESS
 Finished: SUCCESS
 ```
